@@ -1,0 +1,43 @@
+﻿<h1>Coding Events</h1>
+
+<p>
+    <a asp-controller="Entries" asp-action="Add">Add Entry</a>
+</p>
+
+
+<p>
+    <a asp-controller="Entries" asp-action="Delete">Delete Entry</a>
+</p>
+
+@if (ViewBag.entries.Count == 0)
+{
+    <p>No entries yet!</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Feelings
+            </th>
+        </tr>
+        @foreach (var entry in ViewBag.entries)
+        {
+            <tr>
+                <td>@entry.Id</td>
+                <td>@entry.Date</td>
+                <td>@entry.Description</td>
+                <td>@entry.Feelings</td>
+            </tr>
+        }
+    </table>
+}

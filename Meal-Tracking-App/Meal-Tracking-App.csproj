@@ -5,4 +5,8 @@
     <RootNamespace>Meal_Tracking_App</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Views\Entries\" />
+  </ItemGroup>
 </Project>
