@@ -3,21 +3,20 @@ namespace Meal_Tracking_App.Models
 {
     public class Entry
     {
-        public int Date { get; set; }
-        public int Time { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
+        public EntryType Type { get; set; }
         public string Description { get; set; }
         public string Feelings { get; set; }
 
-        public int Id { get; }
-        static private int nextId = 1;
+        public int Id { get; set; }
+
 
         public Entry()
         {
-            Id = nextId;
-            nextId++;
         }
 
-        public Entry(int date, int time, string description, string feelings) : this()
+        public Entry(string date, string time, string description, string feelings)
         {
             Date = date;
             Time = time;
@@ -28,7 +27,7 @@ namespace Meal_Tracking_App.Models
         public override string ToString()
         {
             //return base.ToString();
-            return Date.ToString();
+            return Date;
         }
 
         public override bool Equals(object obj)

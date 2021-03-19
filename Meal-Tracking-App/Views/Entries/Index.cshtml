@@ -1,4 +1,6 @@
-﻿<h1>Coding Events</h1>
+﻿@model List<Meal_Tracking_App.Models.Entry>
+
+<h1>Daily Entries</h1>
 
 <p>
     <a asp-controller="Entries" asp-action="Add">Add Entry</a>
@@ -9,7 +11,7 @@
     <a asp-controller="Entries" asp-action="Delete">Delete Entry</a>
 </p>
 
-@if (ViewBag.entries.Count == 0)
+@if (Model.Count == 0)
 {
     <p>No entries yet!</p>
 }
@@ -24,17 +26,25 @@ else
                 Date
             </th>
             <th>
+                Time
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
                 Description
             </th>
             <th>
                 Feelings
             </th>
         </tr>
-        @foreach (var entry in ViewBag.entries)
+        @foreach (var entry in Model)
         {
             <tr>
                 <td>@entry.Id</td>
                 <td>@entry.Date</td>
+                <td>@entry.Time</td>
+                <td>@entry.Type</td>
                 <td>@entry.Description</td>
                 <td>@entry.Feelings</td>
             </tr>
