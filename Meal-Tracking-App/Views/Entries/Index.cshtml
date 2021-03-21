@@ -31,22 +31,14 @@ else
             <th>
                 Type
             </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Feelings
-            </th>
         </tr>
         @foreach (var entry in Model)
         {
             <tr>
                 <td>@entry.Id</td>
-                <td>@entry.Date</td>
+                <td><a asp-controller="Entries" asp-action="Detail" asp-route-id="@entry.Id">@entry.Date</a></td>
                 <td>@entry.Time</td>
                 <td>@entry.Type</td>
-                <td>@entry.Description</td>
-                <td>@entry.Feelings</td>
             </tr>
         }
     </table>
