@@ -7,6 +7,7 @@ namespace Meal_Tracking_App.Data
     public class EntryDbContext : DbContext
     {
         public DbSet<Entry> Entries { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
 
         public EntryDbContext(DbContextOptions<EntryDbContext> options)
             : base(options)

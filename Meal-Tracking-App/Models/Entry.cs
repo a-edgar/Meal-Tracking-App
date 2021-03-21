@@ -26,7 +26,6 @@ namespace Meal_Tracking_App.Models
 
         public override string ToString()
         {
-            //return base.ToString();
             return Date;
         }
 
