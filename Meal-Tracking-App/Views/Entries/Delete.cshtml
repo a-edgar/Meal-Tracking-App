@@ -1,0 +1,17 @@
+﻿<h1>Delete Entry</h1>
+
+<form method="post">
+
+    @foreach (var entry in ViewBag.entries)
+    {
+        <div class="form-group">
+            <label>
+                <span>@entry.Date</span>
+                <input type="checkbox" name="entryIds" value="@entry.Id" />
+            </label>
+        </div>
+     }
+
+    <input type="submit" value="Delete Selected Entries" class="btn btn-danger" />
+
+</form>

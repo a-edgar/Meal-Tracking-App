@@ -60,5 +60,26 @@ namespace Meal_Tracking_App.Controllers
 
         }
 
+        public IActionResult Delete()
+        {
+            ViewBag.entries = context.Entries.ToList();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] entryIds)
+        {
+            foreach (int entryId in entryIds)
+            {
+                Entry entry = context.Entries.Find(entryId);
+                context.Entries.Remove(entry);
+            }
+
+            context.SaveChanges();
+
+            return Redirect("/Entries");
+        }
+
     }
 }
