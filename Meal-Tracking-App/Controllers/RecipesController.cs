@@ -76,5 +76,14 @@ namespace Meal_Tracking_App.Controllers
 
             return Redirect("/Recipes");
         }
+
+        public IActionResult Detail(int id)
+        {
+            Recipe recipe = context.Recipes.Single(e => e.Id == id);
+
+            RecipeDetailViewModel viewModel = new RecipeDetailViewModel(recipe);
+
+            return View(viewModel);
+        }
     }
 }

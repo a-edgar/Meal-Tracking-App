@@ -28,9 +28,6 @@ else
             <th>
                 Time
             </th>
-            <th>
-                Type
-            </th>
         </tr>
         @foreach (var entry in Model)
         {
@@ -38,7 +35,6 @@ else
                 <td>@entry.Id</td>
                 <td><a asp-controller="Entries" asp-action="Detail" asp-route-id="@entry.Id">@entry.Date</a></td>
                 <td>@entry.Time</td>
-                <td>@entry.Type</td>
             </tr>
         }
     </table>

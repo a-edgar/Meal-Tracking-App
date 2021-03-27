@@ -25,20 +25,12 @@ else
             <th>
                 Name
             </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Link
-            </th>
         </tr>
         @foreach (var recipe in Model)
         {
             <tr>
                 <td>@recipe.Id</td>
-                <td>@recipe.Name</td>
-                <td>@recipe.Description</td>
-                <td>@recipe.Link</td>
+                <td><a asp-controller="Recipes" asp-action="Detail" asp-route-id="@recipe.Id">@recipe.Name</a></td>
             </tr>
         }
     </table>

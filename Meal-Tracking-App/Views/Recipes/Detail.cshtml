@@ -1,0 +1,18 @@
+﻿@model Meal_Tracking_App.ViewModels.AddRecipeViewModel
+
+<h1>@Model.Name</h1>
+
+<table class="table">
+    <tr>
+        <th>Description</th>
+        <td>@Model.Description</td>
+    </tr>
+
+    @if (Model.Link != null || Model.Link != "")
+    {
+        <tr>
+            <th>Link</th>
+            <td>@Model.Link</td>
+        </tr>
+    }
+</table>
