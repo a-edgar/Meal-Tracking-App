@@ -1,0 +1,45 @@
+﻿@model List<Meal_Tracking_App.Models.Recipe>
+
+<h1>Favorite Foods, Meals, and Recipes</h1>
+
+<p>
+    <a asp-controller="Recipes" asp-action="Add">Add Recipe</a>
+</p>
+
+
+<p>
+    <a asp-controller="Recipes" asp-action="Delete">Delete Recipe</a>
+</p>
+
+@if (Model.Count == 0)
+{
+    <p>No recipes yet!</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+        @foreach (var recipe in Model)
+        {
+            <tr>
+                <td>@recipe.Id</td>
+                <td>@recipe.Name</td>
+                <td>@recipe.Description</td>
+                <td>@recipe.Link</td>
+            </tr>
+        }
+    </table>
+}

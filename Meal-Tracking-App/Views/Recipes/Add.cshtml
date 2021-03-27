@@ -1,0 +1,22 @@
+﻿@model Meal_Tracking_App.ViewModels.AddRecipeViewModel;
+
+<h1>Add Food, Meal, or Recipe</h1>
+
+<form asp-controller="Recipes" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Link"></label>
+        <input asp-for="Link" />
+        <span asp-validation-for="Link"></span>
+    </div>
+    <input type="submit" value="Add Recipe" />
+</form>

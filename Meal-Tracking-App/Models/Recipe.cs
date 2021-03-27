@@ -13,10 +13,14 @@ namespace Meal_Tracking_App.Models
         {
         }
 
-        public Recipe(string name, string description, string link)
+        public Recipe(string name, string description)
         {
             Name = name;
             Description = description;
+        }
+
+        public Recipe(string name, string description, string link) : this(name, description)
+        {
             Link = link;
         }
 
