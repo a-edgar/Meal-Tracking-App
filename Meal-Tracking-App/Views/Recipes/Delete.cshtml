@@ -1,0 +1,17 @@
+﻿<h1>Delete Food, Meal, or Recipe</h1>
+
+<form method="post">
+
+    @foreach (var recipe in ViewBag.recipes)
+    {
+        <div class="form-group">
+            <label>
+                <span>@recipe.Name</span>
+                <input type="checkbox" name="entryIds" value="@recipe.Name" />
+            </label>
+        </div>
+    }
+
+    <input type="submit" value="Delete Selected Recipes" class="btn btn-danger" />
+
+</form>

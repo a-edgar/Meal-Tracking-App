@@ -55,5 +55,26 @@ namespace Meal_Tracking_App.Controllers
 
             return View(addRecipeViewModel);
         }
+
+        public IActionResult Delete()
+        {
+            ViewBag.recipes = context.Recipes.ToList();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] recipeIds)
+        {
+            foreach(int recipeId in recipeIds)
+            {
+                Recipe recipe = context.Recipes.Find(recipeId);
+                context.Recipes.Remove(recipe);
+            }
+
+            context.SaveChanges();
+
+            return Redirect("/Recipes");
+        }
     }
 }
