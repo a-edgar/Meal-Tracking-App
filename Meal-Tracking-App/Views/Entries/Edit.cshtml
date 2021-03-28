@@ -1,0 +1,64 @@
+﻿@model Meal_Tracking_App.Models.Entry; 
+
+@{
+    ViewBag.Date = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+<fieldset>
+    <legend>@Model.Date</legend>
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Date)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Date)
+        @Html.ValidationMessageFor(model => model.Date)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Time)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Time)
+        @Html.ValidationMessageFor(model => model.Time)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Type) 
+        @Html.DropDownListFor(model => model.Type,
+       new SelectList(Enum.GetValues(typeof(EntryType))))
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Feelings)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Feelings)
+        @Html.ValidationMessageFor(model => model.Feelings)
+    </div>
+
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+</fieldset>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
