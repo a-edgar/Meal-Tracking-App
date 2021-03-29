@@ -1,4 +1,4 @@
-﻿@model Meal_Tracking_App.ViewModels.AddRecipeViewModel
+﻿@model Meal_Tracking_App.ViewModels.RecipeDetailViewModel
 
 <h1>@Model.Name</h1>
 
@@ -8,11 +8,27 @@
         <td>@Model.Description</td>
     </tr>
 
-    @if (Model.Link != null || Model.Link != "")
+    @if (Model.Link != null)
     {
         <tr>
             <th>Link</th>
-            <td>@Model.Link</td>
+            <td><a href="@Model.Link" target="_blank">@Model.Name Recipe</a></td>
+        </tr>
+    }
+
+    @if (Model.Image != null)
+    {
+        <tr>
+            <th>Image</th>
+            <td>@Model.Image</td>
         </tr>
     }
 </table>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeId })
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

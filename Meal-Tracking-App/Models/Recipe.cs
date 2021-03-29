@@ -6,6 +6,7 @@ namespace Meal_Tracking_App.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Link { get; set; }
+        public string Image { get; set; }
 
         public int Id { get; set; }
 
@@ -17,12 +18,20 @@ namespace Meal_Tracking_App.Models
         {
             Name = name;
             Description = description;
+            //Link = link;
+            //Image = image;
         }
 
-        public Recipe(string name, string description, string link) : this(name, description)
+        public Recipe(string name, string description, string link, string image) : this(name, description)
         {
             Link = link;
+            Image = image;
         }
+
+        //public Recipe(string name, string description, string image) : this(name, description)
+        //{
+        //    Image = image;
+        //}
 
         public override string ToString()
         {

@@ -4,14 +4,14 @@
     ViewBag.Date = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit Entry For @Model.Date</h2>
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
 
 <fieldset>
-    <legend>@Model.Date</legend>
+    @*<legend>@Model.Date</legend>*@
 
     @Html.HiddenFor(model => model.Id)
 
@@ -58,7 +58,3 @@
     </p>
 </fieldset>
 }
-
-@*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@

@@ -9,6 +9,7 @@ namespace Meal_Tracking_App.ViewModels
         public string Name { get; set; }
         public string Description { get; set; }
         public string Link { get; set; }
+        public string Image { get; set; }
 
         public RecipeDetailViewModel(Recipe recipe)
         {
@@ -16,6 +17,7 @@ namespace Meal_Tracking_App.ViewModels
             Name = recipe.Name;
             Description = recipe.Description;
             Link = recipe.Link;
+            Image = recipe.Image;
         }
     }
 }

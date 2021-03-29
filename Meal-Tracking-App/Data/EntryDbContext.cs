@@ -13,5 +13,6 @@ namespace Meal_Tracking_App.Data
             : base(options)
         {
         }
+
     }
 }

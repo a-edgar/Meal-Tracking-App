@@ -107,7 +107,7 @@ namespace Meal_Tracking_App.Controllers
                 context.Entry(entry).State = EntityState.Modified;
                 context.SaveChanges();
 
-                return Redirect("/Entries/Detail");
+                return Redirect("/Entries/Detail/" + entry.Id);
             }
 
             return View(entry);
