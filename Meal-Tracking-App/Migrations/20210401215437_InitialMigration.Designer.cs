@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Meal_Tracking_App.Migrations
 {
     [DbContext(typeof(EntryDbContext))]
-    [Migration("20210321215346_RecipesMigration")]
-    partial class RecipesMigration
+    [Migration("20210401215437_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,6 +51,9 @@ namespace Meal_Tracking_App.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Image")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Link")
