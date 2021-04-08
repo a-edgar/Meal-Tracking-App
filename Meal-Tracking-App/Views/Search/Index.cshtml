@@ -1,0 +1,37 @@
+﻿
+
+<h1>@ViewBag.title</h1>
+
+<form action="/search/results" method="post">
+
+    <h2>Search by date</h2>
+
+    <p>
+        <label for="searchDate">Date</label>
+        <input type="date" value="MM/DD/YYYY" name="searchDate" />
+    </p>
+
+    <input type="submit" value="Search" />
+    
+</form>
+
+<hr />
+
+@if (ViewBag.entries != null)
+{
+<table>
+    @foreach (var entry in ViewBag.entries)
+    {
+        <tr>
+            <td>
+                <p>Time: @entry.Time</p>
+                <p>Meal Type: @entry.Type.ToString()</p>
+                <p>Description: @entry.Description</p>
+                <p>Feelings: @entry.Feelings</p>
+            </td>
+        </tr>
+    }
+
+</table>
+
+}

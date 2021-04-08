@@ -14,6 +14,7 @@ namespace Meal_Tracking_App.ViewModels
         public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Time is required.")]
+        [DataType(DataType.Time)]
         public string Time { get; set; }
         
         [Required(ErrorMessage = "Type is required.")]
