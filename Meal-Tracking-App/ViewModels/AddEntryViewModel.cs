@@ -9,11 +9,13 @@ namespace Meal_Tracking_App.ViewModels
     public class AddEntryViewModel
     {
         [Required(ErrorMessage = "Date is required.")]
-        public string Date { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Time is required.")]
         public string Time { get; set; }
-
+        
         [Required(ErrorMessage = "Type is required.")]
         public EntryType Type { get; set; }
 

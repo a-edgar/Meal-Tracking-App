@@ -4,7 +4,7 @@
     ViewBag.Date = "Edit";
 }
 
-<h2>Edit Entry For @Model.Date</h2>
+<h2>Edit Entry For @Model.Date.ToShortDateString()</h2>
 
 @using (Html.BeginForm())
 {

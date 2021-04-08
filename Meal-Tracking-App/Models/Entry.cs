@@ -1,9 +1,15 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace Meal_Tracking_App.Models
 {
     public class Entry
     {
-        public string Date { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime Date { get; set; }
+
         public string Time { get; set; }
         public EntryType Type { get; set; }
         public string Description { get; set; }
@@ -16,7 +22,7 @@ namespace Meal_Tracking_App.Models
         {
         }
 
-        public Entry(string date, string time, string description, string feelings)
+        public Entry(DateTime date, string time, string description, string feelings)
         {
             Date = date;
             Time = time;
@@ -26,7 +32,7 @@ namespace Meal_Tracking_App.Models
 
         public override string ToString()
         {
-            return Date;
+            return Date.ToShortDateString();
         }
 
         public override bool Equals(object obj)

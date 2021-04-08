@@ -16,7 +16,7 @@ namespace Meal_Tracking_App.ViewModels
         public EntryDetailViewModel(Entry entry)
         {
             EntryId = entry.Id;
-            Date = entry.Date;
+            Date = entry.Date.ToShortDateString();
             Time = entry.Time;
             Type = entry.Type.ToString();
             Description = entry.Description;
