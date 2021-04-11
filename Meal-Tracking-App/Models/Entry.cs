@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Meal_Tracking_App.Models
 {
@@ -16,6 +17,8 @@ namespace Meal_Tracking_App.Models
         public string Feelings { get; set; }
 
         public int Id { get; set; }
+
+        public string UserId { get; set; }
 
 
         public Entry()

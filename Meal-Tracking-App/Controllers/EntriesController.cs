@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Meal_Tracking_App.Data;
 using Meal_Tracking_App.Models;
 using Meal_Tracking_App.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,20 +14,31 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Meal_Tracking_App.Controllers
 {
+    [Authorize]
     public class EntriesController : Controller
     {
 
         private EntryDbContext context;
 
-        public EntriesController(EntryDbContext dbContext)
+        private IAuthorizationService authorizationService;
+
+        private UserManager<IdentityUser> userManager;
+
+        public EntriesController(EntryDbContext dbContext, IAuthorizationService authorizationService, UserManager<IdentityUser> userManager) : base()
         {
             context = dbContext;
+            this.authorizationService = authorizationService;
+            this.userManager = userManager;
         }
 
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Entry> entries = context.Entries.ToList();
+            var currentUserId = userManager.GetUserId(User);
+
+            List<Entry> entries = context.Entries
+                .Where(e => e.UserId == currentUserId)
+                .ToList();
 
             return View(entries);
         }
@@ -42,13 +55,16 @@ namespace Meal_Tracking_App.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = userManager.GetUserId(User);
+
                 Entry newEntry = new Entry
                 {
                     Date = addEntryViewModel.Date,
                     Time = addEntryViewModel.Time,
                     Type = addEntryViewModel.Type,
                     Description = addEntryViewModel.Description,
-                    Feelings = addEntryViewModel.Feelings
+                    Feelings = addEntryViewModel.Feelings,
+                    UserId = currentUserId
                 };
 
                 context.Entries.Add(newEntry);
