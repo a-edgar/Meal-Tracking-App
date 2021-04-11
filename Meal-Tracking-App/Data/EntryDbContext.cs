@@ -16,5 +16,10 @@ namespace Meal_Tracking_App.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
     }
 }
