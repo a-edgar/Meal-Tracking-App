@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Meal_Tracking_App.Migrations
@@ -13,7 +14,7 @@ namespace Meal_Tracking_App.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Date = table.Column<string>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
                     Time = table.Column<string>(nullable: true),
                     Type = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),

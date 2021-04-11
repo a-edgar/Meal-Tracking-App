@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Meal_Tracking_App.Migrations
 {
     [DbContext(typeof(EntryDbContext))]
-    [Migration("20210407173224_EntriesDateUpdate")]
-    partial class EntriesDateUpdate
+    [Migration("20210411005811_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
