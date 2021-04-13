@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Meal_Tracking_App.Data;
 using Meal_Tracking_App.Models;
 using Meal_Tracking_App.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,19 +14,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Meal_Tracking_App.Controllers
 {
+    [Authorize]
     public class RecipesController : Controller
     {
 
         private EntryDbContext context;
 
-        public RecipesController(EntryDbContext dbContext)
+        private IAuthorizationService authorizationService;
+        private UserManager<IdentityUser> userManager;
+
+        public RecipesController(EntryDbContext dbContext, IAuthorizationService authorizationService, UserManager<IdentityUser> userManager) : base()
         {
             context = dbContext;
+            this.authorizationService = authorizationService;
+            this.userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            List<Recipe> recipes = context.Recipes.ToList();
+            var currentUserId = userManager.GetUserId(User);
+
+            List<Recipe> recipes = context.Recipes
+                .Where(e => e.UserId == currentUserId)
+                .ToList();
 
             return View(recipes);
         }
@@ -41,12 +53,15 @@ namespace Meal_Tracking_App.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = userManager.GetUserId(User);
+
                 Recipe newRecipe = new Recipe
                 {
                     Name = addRecipeViewModel.Name,
                     Description = addRecipeViewModel.Description,
                     Link = addRecipeViewModel.Link,
-                    Image = addRecipeViewModel.Image
+                    Image = addRecipeViewModel.Image,
+                    UserId = currentUserId
                 };
 
                 context.Recipes.Add(newRecipe);
@@ -60,7 +75,11 @@ namespace Meal_Tracking_App.Controllers
 
         public IActionResult Delete()
         {
-            ViewBag.recipes = context.Recipes.ToList();
+            var currentUserId = userManager.GetUserId(User);
+
+            ViewBag.recipes = context.Recipes
+                .Where(e => e.UserId == currentUserId)
+                .ToList();
 
             return View();
         }

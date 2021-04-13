@@ -10,6 +10,8 @@ namespace Meal_Tracking_App.Models
 
         public int Id { get; set; }
 
+        public string UserId { get; set; }
+
         public Recipe()
         {
         }

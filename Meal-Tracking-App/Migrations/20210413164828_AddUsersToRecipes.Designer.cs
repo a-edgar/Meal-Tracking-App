@@ -3,14 +3,16 @@ using System;
 using Meal_Tracking_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Meal_Tracking_App.Migrations
 {
     [DbContext(typeof(EntryDbContext))]
-    partial class EntryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210413164828_AddUsersToRecipes")]
+    partial class AddUsersToRecipes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -79,7 +79,11 @@ namespace Meal_Tracking_App.Controllers
 
         public IActionResult Delete()
         {
-            ViewBag.entries = context.Entries.ToList();
+            var currentUserId = userManager.GetUserId(User);
+
+            ViewBag.entries = context.Entries
+                .Where(e => e.UserId == currentUserId)
+                .ToList();
 
             return View();
         }
@@ -90,6 +94,7 @@ namespace Meal_Tracking_App.Controllers
             foreach (int entryId in entryIds)
             {
                 Entry entry = context.Entries.Find(entryId);
+
                 context.Entries.Remove(entry);
             }
 
