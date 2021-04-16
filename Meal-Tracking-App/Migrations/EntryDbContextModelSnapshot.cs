@@ -32,8 +32,8 @@ namespace Meal_Tracking_App.Migrations
                     b.Property<string>("Feelings")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Time")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");

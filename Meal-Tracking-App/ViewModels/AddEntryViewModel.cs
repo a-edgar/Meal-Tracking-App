@@ -15,7 +15,8 @@ namespace Meal_Tracking_App.ViewModels
 
         [Required(ErrorMessage = "Time is required.")]
         [DataType(DataType.Time)]
-        public string Time { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:t}")]
+        public DateTime Time { get; set; }
         
         [Required(ErrorMessage = "Type is required.")]
         public EntryType Type { get; set; }

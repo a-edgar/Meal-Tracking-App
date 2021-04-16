@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Meal_Tracking_App.Migrations
 {
     [DbContext(typeof(EntryDbContext))]
-    [Migration("20210413164828_AddUsersToRecipes")]
-    partial class AddUsersToRecipes
+    [Migration("20210415152729_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,8 @@ namespace Meal_Tracking_App.Migrations
                     b.Property<string>("Feelings")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Time")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");

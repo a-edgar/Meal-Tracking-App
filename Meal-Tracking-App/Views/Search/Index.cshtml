@@ -1,7 +1,5 @@
 ﻿
 
-<h1>@ViewBag.title</h1>
-
 <form action="/search/results" method="post">
 
     <h2>Search by date</h2>
@@ -17,21 +15,23 @@
 
 <hr />
 
+<h1>@ViewBag.title</h1>
+
 @if (ViewBag.entries != null)
 {
-<table>
-    @foreach (var entry in ViewBag.entries)
-    {
-        <tr>
-            <td>
-                <p>Time: @entry.Time</p>
-                <p>Meal Type: @entry.Type.ToString()</p>
-                <p>Description: @entry.Description</p>
-                <p>Feelings: @entry.Feelings</p>
-            </td>
-        </tr>
-    }
+    <table>
+        @foreach (var entry in ViewBag.entries)
+        {
+            <tr>
+                <td>
+                    <p>Time: @entry.Time</p>
+                    <p>Meal Type: @entry.Type.ToString()</p>
+                    <p>Description: @entry.Description</p>
+                    <p>Feelings: @entry.Feelings</p>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
 
 }

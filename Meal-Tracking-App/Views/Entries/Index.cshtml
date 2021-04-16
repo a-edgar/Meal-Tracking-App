@@ -20,9 +20,6 @@ else
     <table class="table">
         <tr>
             <th>
-                Id
-            </th>
-            <th>
                 Date
             </th>
             <th>
@@ -32,9 +29,8 @@ else
         @foreach (var entry in Model)
         {
             <tr>
-                <td>@entry.Id</td>
                 <td><a asp-controller="Entries" asp-action="Detail" asp-route-id="@entry.Id">@entry.Date.ToShortDateString()</a></td>
-                <td>@entry.Time</td>
+                <td>@entry.Time.ToShortTimeString()</td>
             </tr>
         }
     </table>

@@ -42,8 +42,9 @@ namespace Meal_Tracking_App.Controllers
             List<Entry> entries = context.Entries
                 .Where(e => e.UserId == currentUserId)
                 .Where(e => e.Date == searchDate)
-                .OrderBy(e => e.Time)
                 .ToList();
+
+            //entries.OrderBy(e => DateTime.Parse(e.Time));
 
             List<EntryDetailViewModel> displayEntries = new List<EntryDetailViewModel>();
 

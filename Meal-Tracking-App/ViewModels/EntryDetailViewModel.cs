@@ -17,7 +17,7 @@ namespace Meal_Tracking_App.ViewModels
         {
             EntryId = entry.Id;
             Date = entry.Date.ToShortDateString();
-            Time = entry.Time;
+            Time = entry.Time.ToShortTimeString();
             Type = entry.Type.ToString();
             Description = entry.Description;
             Feelings = entry.Feelings;

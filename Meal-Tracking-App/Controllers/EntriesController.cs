@@ -38,9 +38,11 @@ namespace Meal_Tracking_App.Controllers
 
             List<Entry> entries = context.Entries
                 .Where(e => e.UserId == currentUserId)
+                .OrderBy(e => e.Date)
                 .ToList();
 
             return View(entries);
+                //.ThenBy(e => DateTime.Parse(e.Time)));
         }
 
         public IActionResult Add()
@@ -83,7 +85,9 @@ namespace Meal_Tracking_App.Controllers
 
             ViewBag.entries = context.Entries
                 .Where(e => e.UserId == currentUserId)
-                .ToList();
+                .ToList()
+                .OrderBy(e => e.Date);
+                //.ThenBy(e => DateTime.Parse(e.Time));
 
             return View();
         }

@@ -11,7 +11,10 @@ namespace Meal_Tracking_App.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Date { get; set; }
 
-        public string Time { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:t}")]
+        public DateTime Time { get; set; }
+
         public EntryType Type { get; set; }
         public string Description { get; set; }
         public string Feelings { get; set; }
@@ -25,7 +28,7 @@ namespace Meal_Tracking_App.Models
         {
         }
 
-        public Entry(DateTime date, string time, string description, string feelings)
+        public Entry(DateTime date, DateTime time, string description, string feelings)
         {
             Date = date;
             Time = time;
