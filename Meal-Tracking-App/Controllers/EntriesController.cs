@@ -39,7 +39,9 @@ namespace Meal_Tracking_App.Controllers
             List<Entry> entries = context.Entries
                 .Where(e => e.UserId == currentUserId)
                 .OrderBy(e => e.Date)
+                .ThenBy(e => e.Time.TimeOfDay)
                 .ToList();
+                
 
             return View(entries);
                 //.ThenBy(e => DateTime.Parse(e.Time)));
@@ -85,8 +87,9 @@ namespace Meal_Tracking_App.Controllers
 
             ViewBag.entries = context.Entries
                 .Where(e => e.UserId == currentUserId)
-                .ToList()
-                .OrderBy(e => e.Date);
+                .OrderBy(e => e.Date)
+                .ThenBy(e => e.Time.TimeOfDay)
+                .ToList();
                 //.ThenBy(e => DateTime.Parse(e.Time));
 
             return View();
@@ -126,6 +129,7 @@ namespace Meal_Tracking_App.Controllers
 
         [HttpPost]
         public IActionResult Edit(Entry entry)
+        //public async Task<IActionResult> Edit(Entry entry)
         {
             if(ModelState.IsValid)
             {
@@ -133,6 +137,7 @@ namespace Meal_Tracking_App.Controllers
                 context.SaveChanges();
 
                 return Redirect("/Entries/Detail/" + entry.Id);
+                //return RedirectToAction("index", "Entries");
             }
 
             return View(entry);

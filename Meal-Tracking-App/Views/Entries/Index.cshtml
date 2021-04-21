@@ -30,7 +30,7 @@ else
         {
             <tr>
                 <td><a asp-controller="Entries" asp-action="Detail" asp-route-id="@entry.Id">@entry.Date.ToShortDateString()</a></td>
-                <td>@entry.Time.ToShortTimeString()</td>
+                <td>@entry.Time.ToString("hh:mm tt")</td>
             </tr>
         }
     </table>

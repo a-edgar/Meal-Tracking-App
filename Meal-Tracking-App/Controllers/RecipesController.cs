@@ -35,7 +35,8 @@ namespace Meal_Tracking_App.Controllers
             var currentUserId = userManager.GetUserId(User);
 
             List<Recipe> recipes = context.Recipes
-                .Where(e => e.UserId == currentUserId)
+                .Where(r => r.UserId == currentUserId)
+                .OrderBy(r => r.Name)
                 .ToList();
 
             return View(recipes);
@@ -78,7 +79,8 @@ namespace Meal_Tracking_App.Controllers
             var currentUserId = userManager.GetUserId(User);
 
             ViewBag.recipes = context.Recipes
-                .Where(e => e.UserId == currentUserId)
+                .Where(r => r.UserId == currentUserId)
+                .OrderBy(r => r.Name)
                 .ToList();
 
             return View();

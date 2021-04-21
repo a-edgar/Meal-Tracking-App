@@ -6,7 +6,7 @@
     {
         <div class="form-group">
             <label>
-                <span>@entry.Date.ToShortDateString() - @entry.Time.ToShortTimeString()</span>
+                <span>@entry.Date.ToShortDateString() - @entry.Time.ToString("hh:mm tt")</span>
                 <input type="checkbox" name="entryIds" value="@entry.Id" />
             </label>
         </div>

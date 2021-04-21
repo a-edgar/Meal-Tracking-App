@@ -12,7 +12,7 @@ namespace Meal_Tracking_App.Models
         public DateTime Date { get; set; }
 
         [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:t}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
         public DateTime Time { get; set; }
 
         public EntryType Type { get; set; }

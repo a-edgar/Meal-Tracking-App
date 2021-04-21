@@ -15,12 +15,12 @@
     </div>
     <div class="form-group">
         <label asp-for="Link"></label>
-        <input asp-for="Link" />
+        <input type="url" value="Link to Recipe" asp-for="Link" />
         <span asp-validation-for="Link"></span>
     </div>
     <div class="form-group">
         <label asp-for="Image"></label>
-        <input asp-for="Image" />
+        <input value="Image Link" asp-for="Image" />
         <span asp-validation-for="Image"></span>
     </div>
     <input type="submit" value="Add Recipe" />
