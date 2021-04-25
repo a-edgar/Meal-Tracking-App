@@ -90,7 +90,6 @@ namespace Meal_Tracking_App.Controllers
                 .OrderBy(e => e.Date)
                 .ThenBy(e => e.Time.TimeOfDay)
                 .ToList();
-                //.ThenBy(e => DateTime.Parse(e.Time));
 
             return View();
         }

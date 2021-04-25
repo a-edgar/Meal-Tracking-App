@@ -9,7 +9,7 @@
         <input type="date" value="MM/DD/YYYY" name="searchDate" />
     </p>
 
-    <input type="submit" value="Search" />
+    <input type="submit" class="btn btn-dark" value="Search" />
 
 </form>
 
@@ -24,6 +24,7 @@
         {
             <tr>
                 <td>
+                    @*<p><a asp-controller="Entries" asp-action="Detail" asp-route-id="@entry.EntryId">@entry.Time</a>: @entry.Type.ToString()</p>*@
                     <p>Time: @entry.Time</p>
                     <p>Meal Type: @entry.Type.ToString()</p>
                     <p>Description: @entry.Description</p>
@@ -33,5 +34,5 @@
         }
 
     </table>
-
 }
+

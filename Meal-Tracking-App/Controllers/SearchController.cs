@@ -47,7 +47,7 @@ namespace Meal_Tracking_App.Controllers
 
             List<EntryDetailViewModel> displayEntries = new List<EntryDetailViewModel>();
 
-            foreach(Entry entry in entries)
+            foreach (Entry entry in entries)
             {
                 EntryDetailViewModel newDisplayEntry = new EntryDetailViewModel(entry);
                 displayEntries.Add(newDisplayEntry);
@@ -57,7 +57,6 @@ namespace Meal_Tracking_App.Controllers
             ViewBag.entries = displayEntries;
             return View("Index");
         }
+
     }
-
-
 }
